@@ -27,3 +27,15 @@
 *.i*86
 *.x86_64
 *.hex
+
+# PIC CCS C Compiler related files
+
+*.$$$
+*.COD
+*.ERR
+*.HEX
+*.LST
+*.PJT
+*.SYM
+*.TRE
+
