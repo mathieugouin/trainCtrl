@@ -204,16 +204,16 @@ void main(void)
   uint8_t leds = 0;
   uint8_t i = 0;
   uint8_t c = 0;
-  
+
   master_init();
 
   flash_led(5);   // reality check at boot
 
-  // 0         1     
+  // 0         1
   // 0123456789012345
   // Race Chrono
   // 20-FEB-15  B:123
-  
+
   i2c_leds(0b00000000);
 
   i2c_lcd_init();
@@ -226,6 +226,13 @@ void main(void)
   // Special debug mode at startup
   if (!input(BUTTON_PIN))
   {
+    i2c_lcd_clear();
+    i2c_lcd_position_cursor(0, 0);
+    printf(i2c_lcd_write_data, "Sensor Pins:");
+    i2c_lcd_position_cursor(1, 0);
+    printf(i2c_lcd_write_data, "Beam=0, NoBeam=1");
+    delay_ms(DELAY_MESSAGE);
+
     i2c_lcd_clear();
     i2c_lcd_position_cursor(0, 0);
     printf(i2c_lcd_write_data, "Start Pin:");
@@ -325,7 +332,7 @@ void master_init(void)
   // Compare mode + special event: reset timer
   setup_ccp1(CCP_COMPARE_RESET_TIMER);
   enable_interrupts(INT_CCP1);
-  
+
   enable_interrupts(GLOBAL);
 }
 
