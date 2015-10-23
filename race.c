@@ -166,13 +166,11 @@ void timer0_isr(void)
 #INT_TIMER1
 void timer1_isr(void)
 {
-  toggle_led();
 }
 
 #INT_TIMER2
 void timer2_isr(void)
 {
-  toggle_led();
 }
 
 #INT_CCP1
