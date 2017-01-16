@@ -29,7 +29,6 @@
 *.hex
 
 # PIC CCS C Compiler related files
-
 *.$$$
 *.COD
 *.ERR
